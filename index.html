@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Slideshow</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #slideshow {
+            width: 900px;
+            height: 600px;
+            margin: auto;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Image Slideshow</h2>
+    <div id="slideshow"></div>
+    <p id="textDisplay"></p>
+    <script>
+        const images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg', 'image9.jpg'];
+        const messages = ["Hi....", "The Great Wall of China", "Chichén Itzá", "Petra!", "Machu Picchu", "Christ the Redeemer", "The Colosseum", "The Taj Mahal", "The 7 WONDERS"];
+        let currentIndex = 0;
+
+        function changeContent() {
+            document.getElementById('slideshow').style.backgroundImage = `url(${images[currentIndex]})`;
+            document.getElementById('textDisplay').textContent = messages[currentIndex];
+            currentIndex = (currentIndex + 1) % images.length;
+            setTimeout(changeContent, 4000);
+        }
+        
+        changeContent();
+        </script>
+        
+        <script>
+            function showMessage() {
+                setTimeout(function() {
+                    document.getElementById("message").textContent = "Hello, this message is displayed after a delay!";
+                }, 3000); // 3 seconds delay
+            }
+        </script>
+        <h2>Delayed Message Example</h2>
+        <button onclick="showMessage()">Show Message</button>
+        <p id="message"></p>
+</body>
+</html>
+
+
+
+ 
